@@ -1,0 +1,23 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This style is overridden */
+}
+
+div p:hover {
+  color: yellow;
+}
+```
+
+The unexpected behavior is that `div p:hover` inherits the `color: blue` from the `div` selector and adds `color: yellow`. The `color: green` style is not applied. This is due to the higher specificity of `div p:hover` compared to `div p`. Even though `div p` is defined, the inheritance and specificity of the more specific selector wins.
+
+This is uncommon because many developers focus on the inheritance of style rules rather than the intricacies of specificity when it combines with inheritance.
