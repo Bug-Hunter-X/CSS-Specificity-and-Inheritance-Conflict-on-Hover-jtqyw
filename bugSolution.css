@@ -1,0 +1,45 @@
+To solve this, you can either increase the specificity of the `div p` rule or use the `!important` flag:
+
+**Solution 1 (Increasing Specificity):**
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div > p {
+  color: green; /* More specific selector */
+}
+
+div > p:hover {
+  color: yellow;
+}
+```
+
+By changing `div p` to `div > p`, we make the selector more specific, ensuring it overrides the inherited style.  `>` ensures that only direct children of `div` are affected.
+
+**Solution 2 (Using !important):**
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green !important; /* Overrides inherited style */
+}
+
+div p:hover {
+  color: yellow;
+}
+```
+
+Using `!important` forces the `color: green` style to be applied, regardless of inheritance or other specificity considerations.  Use this approach sparingly as overuse can make your CSS harder to maintain.
